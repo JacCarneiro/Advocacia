@@ -1,0 +1,200 @@
+/* =========================================================
+   Vasconcelos & Prado Advocacia — custom.css
+   Customização sobre o Bootstrap 5.3
+   Paleta "Estante Jurídica":
+   --vp-verde  #24382E | --vp-papel #F7F5EF | --vp-couro #6E2B2B
+   --vp-bronze #9C7C4B | --vp-tinta #20241F
+   ========================================================= */
+
+:root {
+  --vp-verde: #24382e;
+  --vp-verde-escuro: #1a2a22;
+  --vp-papel: #f7f5ef;
+  --vp-papel-2: #efece2;
+  --vp-tinta: #20241f;
+  --vp-couro: #6e2b2b;
+  --vp-bronze: #9c7c4b;
+  --vp-branco: #fffdf8;
+
+  /* Sobrescreve variáveis do Bootstrap */
+  --bs-body-bg: var(--vp-papel);
+  --bs-body-color: var(--vp-tinta);
+  --bs-body-font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --bs-link-color: var(--vp-couro);
+  --bs-link-hover-color: var(--vp-verde);
+  --bs-primary: #24382e;
+  --bs-primary-rgb: 36, 56, 46;
+}
+
+h1, h2, h3, .navbar-brand, .display-titulo {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 550;
+  color: var(--vp-verde-escuro);
+}
+
+/* ---------- Componentes reaproveitáveis ---------- */
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vp-bronze);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.eyebrow::before {
+  content: "§";
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.05rem;
+  color: var(--vp-couro);
+}
+
+.btn-vp {
+  --bs-btn-bg: var(--vp-verde);
+  --bs-btn-border-color: var(--vp-verde);
+  --bs-btn-color: var(--vp-branco);
+  --bs-btn-hover-bg: var(--vp-couro);
+  --bs-btn-hover-border-color: var(--vp-couro);
+  --bs-btn-hover-color: var(--vp-branco);
+  --bs-btn-active-bg: var(--vp-verde-escuro);
+  --bs-btn-active-border-color: var(--vp-verde-escuro);
+  --bs-btn-active-color: var(--vp-branco);
+  font-weight: 600;
+  border-radius: 3px;
+}
+.btn-vp-outline {
+  --bs-btn-color: var(--vp-verde);
+  --bs-btn-border-color: var(--vp-verde);
+  --bs-btn-hover-bg: var(--vp-verde);
+  --bs-btn-hover-border-color: var(--vp-verde);
+  --bs-btn-hover-color: var(--vp-branco);
+  --bs-btn-active-bg: var(--vp-verde-escuro);
+  --bs-btn-active-border-color: var(--vp-verde-escuro);
+  --bs-btn-active-color: var(--vp-branco);
+  font-weight: 600;
+  border-radius: 3px;
+  border-width: 1.5px;
+}
+
+/* ---------- Navbar ---------- */
+.navbar-vp {
+  background: color-mix(in srgb, var(--vp-papel) 92%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--vp-papel-2);
+}
+.navbar-vp .navbar-brand span { color: var(--vp-couro); }
+.navbar-vp .nav-link { font-weight: 500; color: var(--vp-tinta); }
+.navbar-vp .nav-link:hover,
+.navbar-vp .nav-link.active { color: var(--vp-couro); }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: "§";
+  position: absolute;
+  right: -0.05em;
+  top: 50%;
+  transform: translateY(-52%);
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(18rem, 38vw, 34rem);
+  line-height: 1;
+  color: var(--vp-papel-2);
+  z-index: 0;
+  user-select: none;
+  pointer-events: none;
+}
+.hero .container { position: relative; z-index: 1; }
+.hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); letter-spacing: -0.01em; }
+
+/* ---------- Áreas de atuação (lista com filetes) ---------- */
+.area-item {
+  border-bottom: 1px solid var(--vp-papel-2);
+}
+.area-item .marcador {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.4rem;
+  color: var(--vp-couro);
+}
+
+/* ---------- Seção verde ---------- */
+.bg-vp-verde { background-color: var(--vp-verde); color: var(--vp-papel); }
+.bg-vp-verde h1, .bg-vp-verde h2, .bg-vp-verde h3 { color: var(--vp-branco); }
+.bg-vp-verde a { color: #d8c9a5; }
+.bg-vp-papel-2 { background-color: var(--vp-papel-2); }
+
+.destaque { border-left: 3px solid var(--vp-bronze); }
+.destaque strong {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.5rem;
+  display: block;
+}
+
+/* ---------- Blog ---------- */
+.post-card {
+  background: var(--vp-branco);
+  border: 1px solid var(--vp-papel-2);
+  border-radius: 4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.post-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(32, 36, 31, 0.08); }
+.post-card .meta {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vp-bronze);
+  font-weight: 600;
+}
+.post-card .card-title a { color: var(--vp-verde-escuro); text-decoration: none; }
+.post-card .card-title a:hover { color: var(--vp-couro); }
+
+.post-item { border-bottom: 1px solid var(--vp-papel-2); }
+.post-item time { font-size: 0.85rem; color: var(--vp-bronze); font-weight: 600; }
+.post-item h3 a { text-decoration: none; color: var(--vp-verde-escuro); }
+.post-item h3 a:hover { color: var(--vp-couro); }
+
+.badge-vp {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--vp-verde);
+  background: var(--vp-papel-2);
+  border-radius: 2px;
+}
+
+/* ---------- Artigo ---------- */
+.artigo { max-width: 72ch; }
+.artigo .meta { font-size: 0.85rem; color: var(--vp-bronze); font-weight: 600; }
+.artigo blockquote {
+  border-left: 3px solid var(--vp-couro);
+  padding: 0.4rem 0 0.4rem 1.3rem;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.15rem;
+  color: var(--vp-verde-escuro);
+}
+.aviso {
+  background: var(--vp-papel-2);
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* ---------- Formulário ---------- */
+.form-control:focus, .form-select:focus {
+  border-color: var(--vp-verde);
+  box-shadow: 0 0 0 0.25rem rgba(36, 56, 46, 0.15);
+}
+
+/* ---------- Rodapé ---------- */
+.footer-vp { background: var(--vp-verde-escuro); color: #cfd6cd; font-size: 0.92rem; }
+.footer-vp h3 { color: var(--vp-branco); font-size: 1.05rem; }
+.footer-vp a { color: #d8c9a5; text-decoration: none; }
+.footer-vp a:hover { text-decoration: underline; }
+.footer-vp .legal { border-top: 1px solid rgba(255, 255, 255, 0.12); font-size: 0.82rem; opacity: 0.75; }
+
+@media (prefers-reduced-motion: reduce) {
+  .post-card, .btn { transition: none; }
+}
